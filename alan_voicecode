@@ -1,0 +1,93 @@
+intent('what is this','what can this do?', 
+    reply('This is an app with voice capabilities to let u know if u can buy anything based on your monthly data.'));
+
+question(
+    'My name is $(NAME)',
+    reply('(Nice to meet you|Hi|Hello) $(NAME) (I\'m Alan|my name is Alan|)'),
+);
+
+question(
+    'Good $(Q morning|evening|night)',
+    reply(
+        'Good $(Q morning|evening). How can I help you?',
+        'Good $(Q night).',
+    ),
+);
+
+question(
+    '(Who|What) are you',
+    reply(
+        'I\'m Alan, your virtual agent',
+        'I\'m Alan. What can I help you with?',
+    ),
+);
+
+question(
+    'Can you help me',
+    reply('(Yes|) I can help you in deciding to buy anything or not'),
+);
+question(
+    'Bye bye',
+    'Gotta go',
+    'Bye',
+    'See you later',
+    'See you soon',
+    'I\'ve got to get going',
+    'Take it easy',
+    'Goodbye',
+    'Take care',
+    'Later',
+    'Peace out',
+    'I\'m (out|out of here)',
+    'I gotta (go|jet|hit the road|head out)',
+    reply(
+        'Until next time',
+        'Goodbye',
+        'See you later',
+        'Take it easy',
+        'Take care',
+        'It was nice to speak to you again',
+    ),
+);
+
+intent('can i buy it today?','should i buy this today?',(p)=>{
+  p.play('which account say savings,current,credit'); 
+  p.play('specify account type and amount, example: savings 100 etc');
+  p.play('you will get a push notification about your current balance and Monthly expense limit')
+  p.then(account);
+  
+});
+// let mel=[];
+// intent('buy $(uid* (.*))',(p)=>{
+//     let API_URL=`http://localhost:8080/customer/getAccountDetails/${p.uid.value}`
+//     api.request(API_URL,(error,response,body)=>{
+//         const {monthly_expense_limit} = JSON.parse.body
+//         mel=monthly_expense_limit
+//     });
+//     p.play({command:'new'})
+//    
+//     
+// })
+
+let values =[];
+let values1=[];
+let values2=[];
+const account = context(() => {
+    intent('savings $(NUMBER)', async (p) => {
+        values.push(p.NUMBER)
+        p.play({ command: 'cibit',values})
+        values.pop(p.NUMBER)
+	   	})
+    
+    intent('credit $(NUMBER)',async (p) => {
+        values.push(p.NUMBER)
+        p.play({ command: 'cibit1',values })
+         values.pop(p.NUMBER)
+    })
+    
+    intent('current $(NUMBER)', async(p)=>{
+        values.push(p.NUMBER)
+        p.play({ command: 'cibit2',values})
+         values.pop(p.NUMBER)
+    })
+})
