@@ -52,9 +52,12 @@ this.setState({accountdetails: [...this.state.accountdetails,{...account,expense
                 console.log(a);
                   if(c>b){
                  toast.warn("you have reached maximum monthly limit");
+                 alanBtn().playText(`you have reached maximum monthly limit this purchase is not advisable`);
+
                   }else{
-                  toast.warn(`you have balance amount of ${a} and your MEL is ${b} and its okay to purchase amount of ${c}`);
-                  }
+                  toast.warn(`you have balance amount of ${a} and your Monthly Expense Limit is ${b} and its okay to purchase amount of ${c}`);
+                  alanBtn().playText(`you have balance amount of ${a} and your Monthly Expense Limit is ${b} and its okay to purchase amount of ${c}`);
+                }
                 })
                 
             }else if(command === "cibit1")//credit
@@ -69,8 +72,10 @@ this.setState({accountdetails: [...this.state.accountdetails,{...account,expense
                 console.log(a);
                   if(c>b){
                  toast.warn("you have reached maximum monthly limit");
+                 alanBtn().playText(`you have reached maximum monthly limit this purchase is not advisable`);
                   }else{
-                    toast.warn(`you have balance amount of ${a} and your MEL is ${b} and its okay to purchase amount of ${c}`);
+                    toast.warn(`you have balance amount of ${a} and your Monthly Expense Limit is ${b} and its okay to purchase amount of ${c}`);
+                    alanBtn().playText(`you have balance amount of ${a} and your Monthly Expense Limit is ${b} and its okay to purchase amount of ${c}`);
                   }
                 })
 
@@ -86,8 +91,11 @@ this.setState({accountdetails: [...this.state.accountdetails,{...account,expense
                 console.log(a);
                   if(c>b){
                  toast.warn("you have reached maximum monthly limit");
+                 alanBtn().playText(`you have reached maximum monthly limit this purchase is not advisable`);
+
                   }else{
-                    toast.warn(`you have balance amount of ${a} and your MEL is ${b} and its okay to purchase amount of ${c}`);
+                    toast.warn(`you have balance amount of ${a} and your Monthly Expense Limit is ${b} and its okay to purchase amount of ${c}`);
+                    alanBtn().playText(`you have balance amount of ${a} and your Monthly expense limit is ${b} and its okay to purchase amount of ${c}`);
                   }
                 })
               
