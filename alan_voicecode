@@ -53,7 +53,7 @@ question(
 intent('can i buy it today?','should i buy this today?',(p)=>{
   p.play('which account say savings,current,credit'); 
   p.play('specify account type and amount, example: savings 100 etc');
-  p.play('you will get a push notification about your current balance and Monthly expense limit')
+  p.play('you will get a notification in the browser about your current balance and Monthly expense limit')
   p.then(account);
   
 });
