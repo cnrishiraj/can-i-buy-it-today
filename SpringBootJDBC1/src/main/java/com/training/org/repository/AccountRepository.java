@@ -21,6 +21,8 @@ public interface AccountRepository extends JpaRepository<Account,Integer> {
 	@Query("select a from Account a where a.username =:username")
 	public List<Account> getAccountsByUsername(@Param("username") String username);
 	
+	
+	
 	@Modifying
 	@Query("update Account a set a.account_balance=:bal where a.account_id=:account_id")
 	public void updateBalance(@Param("bal") int bal,@Param("account_id") int account_id);

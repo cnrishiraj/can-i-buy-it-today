@@ -2,6 +2,7 @@ package com.training.org.service;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,12 @@ public class TransactionServiceImpl implements TransactionService {
 	public void save(Transaction transaction) {
 		repo.save(transaction);
 	}
+	
+	@Transactional
+	@Override
+	public List<Transaction> getTransaction(Date start,Date current,int account_id) {
+		return repo.getTransaction(start,current,account_id);
+	}
+	
 
 } 

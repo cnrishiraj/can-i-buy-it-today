@@ -1,6 +1,7 @@
 package com.training.org.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -132,6 +133,26 @@ public class AccountController {
 	
 		
 	}
+	//Get api for obtaining tranactions 
+	
+	@GetMapping("/account/MyTransactions/{account_id}")
+	public List<Transaction> getTransactions(@PathVariable int account_id){
+		
+		LocalDate curr = LocalDate.now();
+		LocalDate st  =curr.withDayOfMonth(1);
+		Date start = Date.valueOf(st);
+		Date current = Date.valueOf(curr);
+		List<Transaction> tr = new ArrayList<>();
+		tr=transactionService.getTransaction(start,current,account_id);
+		return tr;
+	}
+	
+	
+	
+	//controller uses service
+	//service uses repo
+	//repo uses database
+	
 	@PostMapping("/test")
 	public Transaction test(@RequestBody Transaction transaction) {
 		return transaction;

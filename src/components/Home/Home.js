@@ -1,4 +1,3 @@
-
 import React ,{createRef} from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import Axios from 'axios';
@@ -37,7 +36,7 @@ this.setState({accountdetails: [...this.state.accountdetails,{...account,expense
    iniatite_voice(){
       const uid = this.props.match.params.acid;
       this.alanBtnInstance = alanBtn({ 
-          key: 'b1460b1760481aff85ece0b9df063d582e956eca572e1d8b807a3e2338fdd0dc/stage',
+          key: '07718ab417b08c5db5535b817766009f2e956eca572e1d8b807a3e2338fdd0dc/stage',
           onCommand: function ({command,values}) {
             if (command === "cibit")//savings
              {
@@ -122,6 +121,12 @@ this.setState({accountdetails: [...this.state.accountdetails,{...account,expense
     
     render(){
         return (<div>
+          <div className="header">
+            <div style={{"display":"flex"}}>
+          <h3>Welcome</h3>
+          <h3 className="header-active" style={{"margin-left":"10px","padding-top":"2px"}}>{this.props.match.params.acid}</h3> 
+            </div>
+          </div>
 
               <BarChartComponent accountdetails={this.state.accountdetails} />
               <div style={{ margin: `50px`, display: `flex`, flexDirection: `row` ,justifyContent:`center`}}>
